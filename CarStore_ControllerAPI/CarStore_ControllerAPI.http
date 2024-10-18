@@ -1,0 +1,6 @@
+@CarStore_ControllerAPI_HostAddress = http://localhost:5132
+
+GET {{CarStore_ControllerAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
