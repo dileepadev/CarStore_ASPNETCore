@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "CarStore_ControllerAPI.sln"
+    "dotnet.defaultSolution": "CarStore_ControllerAPI.sln",
+    "cSpell.words": [
+        "Hsts"
+    ]
 }

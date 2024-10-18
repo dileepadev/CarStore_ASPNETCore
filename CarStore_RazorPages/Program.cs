@@ -3,6 +3,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+// Add IHttpClientFactory to the container and set the name of the factory
+// to "CarStore_MinimalAPI". The base address for API requests is also set.
+builder.Services.AddHttpClient("CarStore_MinimalAPI", httpClient =>
+{
+    httpClient.BaseAddress = new Uri("http://localhost:5062/carlist/");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,10 +1,96 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Car Store";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@* Note: Many of the "class=" instances reference Bootstrap sytles. *@
+
+<div class="container p-3">
+
+    <div>
+        <div class="col border-bottom" style="width:80%">
+            <h2 class="display-6 text-primary">Welcome to CarStore</h2>
+            <p class="lead text-muted">Your one-stop solution to manage and explore the finest cars.</p>
+        </div>
+    </div>
+
+    @* The div below handles the display of temporary messages. In this
+    project it displays the success/failure of an HTTP operation. *@
+
+    <div class="container pt-4">
+        <div class="row" style="width:80%">
+            <div class="col">
+                @if (TempData["success"] != null)
+                {
+                    <h4>@TempData["success"]</h4>
+                }
+                else
+                {
+                    <h4>@TempData["failure"]</h4>
+                }
+            </div>
+            <div class="col text-end pb-4">
+                <a asp-page="add" class="btn btn-primary mx-2 text-end" title="">
+                    <i class="bi bi-plus-square"></i> &nbsp;Add to list
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @* The table below displays the data retrieved from the API *@
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Owner</th>
+                <th>Price</th>
+                <th class="text-center">Available?</th>
+                <th class="text-center">Manage</th>
+            </tr>
+        </thead>
+
+        @* Begin render API data code block *@
+        <tbody>
+
+            @* The Razor keyword @foreach is used to iterate through the
+            data returned to the data model from the HTTP operations. *@
+            @foreach (var obj in Model.CarModels)
+            {
+                <tr>
+                    @* Display the data in the table *@
+                    <td width="15%">@obj.brand</td>
+                    <td width="15%">@obj.model</td>
+                    <td width="10%">@obj.color</td>
+                    <td width="20%">@obj.owner</td>
+                    <td width="10%">@obj.price</td>
+                    @* The following if statment is a Razor code block that changes the color
+                and icon of the available indicator in the page rendering. *@
+                    @{
+                        if (@obj.isAvailable)
+                        {
+                            <td width="10%" class="text-md-center">Yes</td>
+                        }
+                        else
+                        {
+                            <td width="10%" class="text-md-center">No</td>
+                        }
+                    }
+                    <td width="30%" class="text-center">
+                        @* The following div contains information to handle the edit and delete functions. *@
+                        <div class="w-120 btn-group btn-group-sm" role="group" style="text-align:center">
+                            @* Routes to the Edit page and passes the id of the record. *@
+                            <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-secondary mx-2">Edit</a>
+                            @* Routes to the Delete page and passes the id of the record. *@
+                            <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        @* End render API data code block *@
+
+    </table>
 </div>
