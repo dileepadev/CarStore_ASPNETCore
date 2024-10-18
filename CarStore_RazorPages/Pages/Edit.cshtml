@@ -1,0 +1,62 @@
+﻿@page
+@model CarStore_RazorPages.Pages.EditModel
+@{
+	ViewData["Title"] = "Edit page";
+}
+
+@* Note: Many of the "class=" instances reference Bootstrap sytles. *@
+
+
+@* Begin render Edit code block *@
+<form method="post">
+	@* The id for the data record is hidden because it needs to be available to the
+	code-behind processing, but it's not displayed. *@
+	<input hidden asp-for="CarModels!.id" />
+	<div class="border p-3 mt-4" style="width:50%">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Edit Fruit</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.brand" class="h5"></label><br />
+			@* Render the current name of the fruit in an editable text box. *@
+			<input type="text" asp-for="CarModels!.brand" />
+			<span asp-validation-for="CarModels!.brand" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.model" class="h5"></label><br />
+			@* Render the current model of the car in an editable text box. *@
+			<input type="text" asp-for="CarModels!.model" />
+			<span asp-validation-for="CarModels!.model" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.color" class="h5"></label><br />
+			@* Render the current color of the car in an editable text box. *@
+			<input type="text" asp-for="CarModels!.color" />
+			<span asp-validation-for="CarModels!.color" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.owner" class="h5"></label><br />
+			@* Render the current owner of the car in an editable text box. *@
+			<input type="text" asp-for="CarModels!.owner" />
+			<span asp-validation-for="CarModels!.owner" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.price" class="h5"></label><br />
+			@* Render the current price of the car in an editable text box. *@
+			<input type="text" asp-for="CarModels!.price" />
+			<span asp-validation-for="CarModels!.price" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CarModels!.isAvailable" class="h5"></label><br />
+			@* Render the true/false instock state from the record in an editable checkbox. *@
+			<input type="checkbox" asp-for="CarModels!.isAvailable" style="width:20px; height:20px" />
+			<label class="h7"><i class="bi bi-arrow-left"></i> Check the box if available.</label>
+			<span asp-validation-for="CarModels!.isAvailable" class="text-danger"></span>
+		</div>
+		@* Submit the changes or return to the Index page if the edit is cancelled.*@
+		<button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Cancel</a>
+	</div>
+</form>
+@* End render Edit code block *@
