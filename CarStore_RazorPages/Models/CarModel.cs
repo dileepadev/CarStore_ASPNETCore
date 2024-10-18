@@ -9,17 +9,17 @@ public class CarModel
     [Key]
     public int Id { get; set; }
 
-    [Display(Name = "brand")]
+    [Display(Name = "Brand")]
     public string? brand { get; set; }
-    [Display(Name = "model")]
+    [Display(Name = "Model")]
     public string? model { get; set; }
-    [Display(Name = "color")]
+    [Display(Name = "Color")]
     public string? color { get; set; }
-    [Display(Name = "owner")]
+    [Display(Name = "Owner")]
     public string? owner { get; set; }
-    [Display(Name = "price")]
+    [Display(Name = "Price")]
     public double price { get; set; } = 0;
-    [Display(Name = "isAvailable")]
+    [Display(Name = "Is Available")]
     [Required]
     public bool isAvailable { get; set; }
 }
