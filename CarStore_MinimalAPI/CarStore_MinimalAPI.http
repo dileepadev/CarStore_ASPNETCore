@@ -1,6 +1,43 @@
 @CarStore_MinimalAPI_HostAddress = http://localhost:5062
 
-GET {{CarStore_MinimalAPI_HostAddress}}/weatherforecast/
+### Get all cars
+GET {{CarStore_MinimalAPI_HostAddress}}/carlist/
 Accept: application/json
+
+### Get car by id
+GET {{CarStore_MinimalAPI_HostAddress}}/carlist/5
+
+### Get available cars
+GET {{CarStore_MinimalAPI_HostAddress}}/carlist/available
+
+### Add car to list
+POST {{CarStore_MinimalAPI_HostAddress}}/carlist/
+Content-Type: application/json
+
+{
+    "brand": "Lamborghini",
+    "model": "Aventador",
+    "color": "Red",
+    "owner": "John Doe",
+    "price": 500000,
+    "isAvailable": true
+}
+
+### Update car by id
+PUT {{CarStore_MinimalAPI_HostAddress}}/carlist/8
+Content-Type: application/json
+
+{
+    "id": 8,
+    "brand": "Lamborghini",
+    "model": "Aventadornn",
+    "color": "Yellow",
+    "owner": "John Doe",
+    "price": 545000,
+    "isAvailable": true
+}
+
+### Delete car by id
+DELETE {{CarStore_MinimalAPI_HostAddress}}/carlist/7
 
 ###
