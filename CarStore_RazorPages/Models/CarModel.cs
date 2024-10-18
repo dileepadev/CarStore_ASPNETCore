@@ -7,7 +7,7 @@ namespace CarStore_RazorPages.Models;
 public class CarModel
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
 
     [Display(Name = "Brand")]
     public string? brand { get; set; }
