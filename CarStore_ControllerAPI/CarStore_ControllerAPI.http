@@ -1,6 +1,41 @@
 @CarStore_ControllerAPI_HostAddress = http://localhost:5132
 
-GET {{CarStore_ControllerAPI_HostAddress}}/weatherforecast/
+###
+GET {{CarStore_ControllerAPI_HostAddress}}/api/car/
 Accept: application/json
+
+###
+GET {{CarStore_ControllerAPI_HostAddress}}/api/car/5
+Accept: application/json
+
+###
+POST {{CarStore_ControllerAPI_HostAddress}}/api/car/
+Content-Type: application/json
+
+{
+    "brand": "Lamborghini",
+    "model": "Aventador",
+    "color": "Red",
+    "owner": "John Doe",
+    "price": 500000,
+    "isAvailable": true
+}
+
+###
+PUT {{CarStore_ControllerAPI_HostAddress}}/api/car/7
+Content-Type: application/json
+
+{
+    "id": 7,
+    "brand": "Lamborghini",
+    "model": "Aventador",
+    "color": "Yellow",
+    "owner": "John Doe",
+    "price": 545000,
+    "isAvailable": true
+}
+
+###
+DELETE {{CarStore_ControllerAPI_HostAddress}}/api/car/7
 
 ###
