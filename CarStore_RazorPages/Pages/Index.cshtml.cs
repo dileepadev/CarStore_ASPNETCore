@@ -20,7 +20,7 @@ namespace CarStore_RazorPages.Pages
         // Add the data model and bind the form data to the page model properties
         // Enumerable since an array is expected as a response
         [BindProperty]
-        public IEnumerable<CarModel> CarModels { get; set; }
+        public IEnumerable<CarModel>? CarModels { get; set; }
 
         // Begin GET operation code
         // OnGet() is async since HTTP requests should be performed async
