@@ -57,7 +57,7 @@
 
             @* The Razor keyword @foreach is used to iterate through the
             data returned to the data model from the HTTP operations. *@
-            @foreach (var obj in Model.CarModels)
+            @foreach (var obj in Model.CarModels!)
             {
                 <tr>
                     @* Display the data in the table *@
